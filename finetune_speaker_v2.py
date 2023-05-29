@@ -52,6 +52,7 @@ def main():
   os.environ['MASTER_PORT'] = '8000'
 
   hps = utils.get_hparams()
+  hps.train.batch_size = 20
   mp.spawn(run, nprocs=n_gpus, args=(n_gpus, hps,))
 
 
